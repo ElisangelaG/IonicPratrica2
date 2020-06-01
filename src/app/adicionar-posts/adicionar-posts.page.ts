@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-adicionar-posts',
   templateUrl: './adicionar-posts.page.html',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdicionarPostsPage implements OnInit {
 
-  constructor() { }
+
+
+  constructor( ) { }
+
+  form = {
+    userId: '',
+    id: '',
+    title: '',
+    body: ''
+  }
 
   ngOnInit() {
   }
 
+  AddPost(form) {
+    console.log(form.value);
+  }
+
 }
+
+  
+    
+  
+

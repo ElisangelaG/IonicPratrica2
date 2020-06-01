@@ -1,9 +1,31 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>posts</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Posts</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+    <ion-progress-bar color="primary" [value]="barra"></ion-progress-bar>
+
+
+
+    <ion-list *ngFor="let dados of dadosPage">
+        <p>{{ dados.id }} </p>
+        <p>{{ dados.title }} </p>
+        <p>{{ dados.body }}</p>
+    </ion-list>
+
+    <ion-fab vertical="bottom" (click)="mostrarToast()" [routerLink]="['/adicionar-posts']" horizontal="end" slot="fixed">
+        <ion-fab-button>
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>
