@@ -21,7 +21,13 @@ export class PostsPage implements OnInit {
         this.barra += .1;
     }, 1000)
 }
-
+async mostrarToast() {
+  const toast = await this.toastController.create({
+      message: "Hello World :)",
+      duration: 500000
+  });
+  toast.present();
+}
   async   ngOnInit() {
     let response = await this.postsService.getPost();
     this.dados =response;
